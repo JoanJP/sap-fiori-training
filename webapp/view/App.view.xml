@@ -1,0 +1,13 @@
+<!-- controllerName="ui5.walkthrough.controller.App" will refer to folder "controller" and the file "App.controller.js" -->
+<mvc:View
+    controllerName="ui5.walkthrough.controller.App" 
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+<!-- VBox for vertical layout because SAPUI5 by default stacks items horizontally when no layout is specified -->
+<!-- Class margin documentation https://help.sap.com/doc/saphelp_nw75/7.5.5/en-US/77/7168ffe8324873973151dae2356d1c/frameset.htm -->
+<VBox class="sapUiResponsiveMargin">
+    <Text text="Hello from XML View!" />
+    <Button text="Press this Button!" press=".onShowButtonHello"/>
+</VBox>
+
+</mvc:View>
