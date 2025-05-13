@@ -8,6 +8,8 @@
 <VBox class="sapUiResponsiveMargin">
     <Text text="Hello from XML View!" />
     <Button text="Press this Button!" press=".onShowButtonHello"/>
+    <!-- Below used massage toast -->
+    <Button text="Press this NEW Button!" press=".onShowButtonToast"/>
 </VBox>
 
 </mvc:View>
