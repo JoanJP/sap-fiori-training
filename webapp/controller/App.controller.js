@@ -9,14 +9,18 @@ sap.ui.define(
         alert("Hello, I'm a button!");
       },
       onShowButtonToast() {
-        MessageToast.show(
-          "Hello, This is a NEW Button!"
-          // Below is the customization
-          // {
-          //   my: "center top",
-          //   at: "center top",
-          // }
-        );
+        MessageToast.show("Hello, This is a NEW Button!");
+      },
+      onShowResource() {
+        // read msg from i18n model
+        const oBundle = this.getView().getModel("i18n").getResourceBundle();
+        const sRecipient = this.getView()
+          .getModel("main")
+          .getProperty("/recipient/name");
+        const sMsg = oBundle.getText("helloMsg", [sRecipient]);
+
+        // show message
+        MessageToast.show(sMsg);
       },
     });
   }

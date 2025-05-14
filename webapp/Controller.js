@@ -1,0 +1,42 @@
+sap.ui.define(
+  [
+    "sap/ui/core/UIComponent",
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/model/resource/ResourceModel",
+  ],
+  (UIComponent, JSONModel, ResourceModel) => {
+    "use strict";
+
+    return UIComponent.extend("ui5.walkthrough.Component", {
+      metadata: {
+        interfaces: ["sap.ui.core.IAsyncContentCreation"],
+        // This tells UI5 to automatically load App.view.xml as the first screen
+        rootView: {
+          viewName: "ui5.walkthrough.view.App",
+          type: "XML",
+          id: "app",
+        },
+      },
+      init() {
+        // call the init function of the parent
+        UIComponent.prototype.init.apply(this, arguments);
+
+        // set main data model
+        const oMainData = { recipient: { name: "Initial Value" } };
+        const oMainModel = new JSONModel(oMainData);
+        this.setModel(oMainModel, "main");
+
+        // set secondary data model
+        const oSettingsData = { themes: "dark", notificationsEnabled: true };
+        const oSettingsModel = new JSONModel(oSettingsData);
+        this.setModel(oSettingsModel, "settings");
+
+        // set i18n model
+        const i18nModel = new ResourceModel({
+          bundleName: "ui5.walkthrough.i18n.i18n",
+        });
+        this.setModel(i18nModel, "i18n");
+      },
+    });
+  }
+);
