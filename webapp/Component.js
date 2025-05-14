@@ -10,12 +10,9 @@ sap.ui.define(
     return UIComponent.extend("ui5.walkthrough.Component", {
       metadata: {
         interfaces: ["sap.ui.core.IAsyncContentCreation"],
-        // This tells UI5 to automatically load App.view.xml as the first screen
-        rootView: {
-          viewName: "ui5.walkthrough.view.App",
-          type: "XML",
-          id: "app",
-        },
+        // THIS WILL look inside manifest.json for rootView and config!\
+        // // This tells UI5 to automatically load App.view.xml as the first screen
+        manifest: "json",
       },
       init() {
         // call the init function of the parent
@@ -27,7 +24,7 @@ sap.ui.define(
         this.setModel(oMainModel, "main");
 
         // set secondary data model
-        const oSettingsData = { themes: "dark", notificationsEnabled: true };
+        const oSettingsData = { theme: "dark", notificationsEnabled: true };
         const oSettingsModel = new JSONModel(oSettingsData);
         this.setModel(oSettingsModel, "settings");
 
