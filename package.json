@@ -6,6 +6,8 @@
     "start": "ui5 serve -o index.html"
   },
   "devDependencies": {
-    "@ui5/cli": "^4.0.15"
+    "@prettier/plugin-xml": "^3.4.1",
+    "@ui5/cli": "^4.0.15",
+    "prettier": "^3.5.3"
   }
 }
