@@ -11,7 +11,7 @@ sap.ui.define(
       metadata: {
         interfaces: ["sap.ui.core.IAsyncContentCreation"],
         // THIS WILL look inside manifest.json for rootView and config!\
-        // // This tells UI5 to automatically load App.view.xml as the first screen
+        // This tells UI5 to automatically load App.view.xml as the first screen
         manifest: "json",
       },
       init() {
