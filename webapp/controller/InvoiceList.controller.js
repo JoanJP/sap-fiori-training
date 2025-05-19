@@ -21,14 +21,21 @@ sap.ui.define(
         const sQuery = oEvent.getParameter("query");
         if (sQuery) {
           aFilter.push(
-            new Filter("ProductName", FilterOperator.Contains, sQuery)
+            new Filter({
+              path: "ProductName",
+              operator: FilterOperator.Contains,
+              value1: sQuery,
+              // caseSensitive: false,
+            })
           );
         }
 
         // filter binding
         const oList = this.byId("invoiceList");
         const oBinding = oList.getBinding("items");
-        oBinding.filter(aFilter);
+        if (oBinding) {
+          oBinding.filter(aFilter);
+        }
       },
     });
   }
