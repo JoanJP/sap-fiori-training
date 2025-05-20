@@ -1,10 +1,6 @@
 sap.ui.define(
-  [
-    "sap/ui/core/UIComponent",
-    "sap/ui/model/json/JSONModel",
-    // "sap/ui/model/resource/ResourceModel",
-  ],
-  (UIComponent, JSONModel, ResourceModel) => {
+  ["sap/ui/core/UIComponent", "sap/ui/model/json/JSONModel"],
+  (UIComponent, JSONModel) => {
     "use strict";
 
     return UIComponent.extend("ui5.walkthrough.Component", {
@@ -28,11 +24,8 @@ sap.ui.define(
         const oSettingsModel = new JSONModel(oSettingsData);
         this.setModel(oSettingsModel, "settings");
 
-        // set i18n model
-        // const i18nModel = new ResourceModel({
-        //   bundleName: "ui5.walkthrough.i18n.i18n",
-        // });
-        // this.setModel(i18nModel, "i18n");
+        // create the views based on the url/hash
+        this.getRouter().initialize();
       },
     });
   }
