@@ -1,0 +1,2 @@
+sap.ui.define(["sap/m/Text","sap/ui/core/mvc/XMLView"],(e,t)=>{"use strict";new e({text:"Hello Control"}).placeAt("contentControl");t.create({viewName:"ui5.walkthrough.view.App"}).then(e=>e.placeAt("contentXmlView"))});
+//# sourceMappingURL=index-with-view.js.map
