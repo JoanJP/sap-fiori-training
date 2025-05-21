@@ -1,6 +1,6 @@
 sap.ui.define(
-  ["sap/ui/core/UIComponent", "sap/ui/model/json/JSONModel"],
-  (UIComponent, JSONModel) => {
+  ["sap/ui/core/UIComponent", "sap/ui/model/json/JSONModel", "sap/ui/Device"],
+  (UIComponent, JSONModel, Device) => {
     "use strict";
 
     return UIComponent.extend("ui5.walkthrough.Component", {
@@ -24,8 +24,16 @@ sap.ui.define(
         const oSettingsModel = new JSONModel(oSettingsData);
         this.setModel(oSettingsModel, "settings");
 
+        // set device model
+        const oDeviceModel = new JSONModel(Device);
+        oDeviceModel.setDefaultBindingMode("OneWay");
+        this.setModel(oDeviceModel, "device");
+
         // create the views based on the url/hash
         this.getRouter().initialize();
+      },
+      getContentDensityClass() {
+        return Device.support.touch ? "sapUiSizeCozy" : "sapUiSizeCompact";
       },
     });
   }
