@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "The UI5 walkthrough application",
   "scripts": {
-    "start": "ui5 serve -o test/mockServer.html",
+    "start": "ui5 serve -o index.html",
     "test": "ui5 serve -o test/testsuite.qunit.html",
     "build": "ui5 build --all --clean-dest",
     "serve-dist": "ws --compress -d dist --open"
